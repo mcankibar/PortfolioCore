@@ -1,0 +1,36 @@
+﻿@using PortfolioCore.Entities
+@model List<Experience>
+
+@{
+    ViewData["Title"] = "ExperienceList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>ExperienceList</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Alt başlık</th>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        
+    </thead>
+    @foreach(var item in Model){
+        <tr>
+            <td>@item.ExperienceId</td>
+            <td>@item.Title</td>
+            <td>@item.SubTitle</td>
+            <td>@item.Description</td>
+            <td>@item.ExperienceDate</td>
+            <td><a asp-controller="Experience" asp-action="DeleteExperience" asp-route-id="@item.ExperienceId" class="btn btn-danger">Sil</a></td>
+            <td><a asp-controller ="Experience" asp-action="UpdateExperience" asp-route-id="@item.ExperienceId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="" class="btn btn-primary">Yeni Deneyim Girişi</a>
+

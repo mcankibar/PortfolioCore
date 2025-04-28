@@ -1,0 +1,54 @@
+﻿@model List<Skill>
+
+<section id="skills" class="skills section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row skills-content skills-animation">
+            @for (int i = 0; i < Model.Count; i += 3)
+            {
+                <div class="col-lg-6">
+
+                    @for (int j = i; j < i + 3; j++)
+                    {
+                        @if (j < Model.Count)
+                        {
+                            <div class="progress">
+
+
+
+                                <span class="skill"><span>@Model[j].SkillName</span> <i class="val">@Model[j].SkillValue%</i></span>
+                                <div class="progress-bar-wrap">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@Model[j].SkillValue" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+                        }
+                    }
+
+
+
+
+
+                </div>
+            }
+
+
+
+        </div>
+
+    </div>
+
+</section><!-- /Skills Section -->

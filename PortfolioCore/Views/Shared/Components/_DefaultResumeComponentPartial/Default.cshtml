@@ -1,0 +1,24 @@
+﻿
+<section id="resume" class="resume section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row">
+
+            
+            @await Component.InvokeAsync("_DefaultEducationComponentPartial")
+
+            @await Component.InvokeAsync("_DefaultExperienceComponentPartial")
+
+
+        </div>
+
+    </div>
+
+</section><!-- /Resume Section -->

@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+@model List<PortfolioCore.Entities.Message>
+
+<h2 class="mb-4">Gelen Mesajlar</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Gönderen Adı</th>
+            <th>Email</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>Gönderim Tarihi</th>
+            <th>Durum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="row-@item.MessageId" class="@(item.IsRead ? "table-success" : "table-warning")">
+                <td>@item.MessageId</td>
+                <td>@item.NameSurname</td>
+                <td>@item.Email</td>
+                <td>@item.Subject</td>
+                <td>@item.MessageDetail</td>
+                <td>@item.SendDate.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input" type="checkbox"
+                        @(item.IsRead ? "checked" : "")
+                               onchange="toggleReadStatus(@item.MessageId)">
+                        <label id="status-label-@item.MessageId" class="form-check-label ml-2">
+                            @(item.IsRead ? "Okundu" : "Okunmadı")
+                        </label>
+                    </div>
+                </td>
+                <td>
+                    <form asp-action="DeleteMessage" asp-controller="Message" method="post" style="display:inline;">
+                        <input type="hidden" name="messageId" value="@item.MessageId" />
+                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                    </form>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function toggleReadStatus(messageId) {
+        fetch('/Message/ToggleReadStatus/' + messageId, {
+            method: 'POST'
+        })
+        .then(response => {
+            if (response.ok) {
+                const row = document.getElementById('row-' + messageId);
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                const label = document.getElementById('status-label-' + messageId);
+
+                if (checkbox.checked) {
+                    row.classList.remove('table-warning');
+                    row.classList.add('table-success');
+                    label.textContent = "Okundu";
+                } else {
+                    row.classList.remove('table-success');
+                    row.classList.add('table-warning');
+                    label.textContent = "Okunmadı";
+                }
+            } else {
+                alert("İşlem başarısız oldu.");
+            }
+        })
+        .catch(error => {
+            alert("Bir hata oluştu.");
+        });
+    }
+</script>

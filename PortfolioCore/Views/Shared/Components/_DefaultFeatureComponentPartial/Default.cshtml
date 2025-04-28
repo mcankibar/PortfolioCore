@@ -1,0 +1,22 @@
+﻿@model List<SocialMedia>
+<section id="hero" class="hero section light-background">
+
+    <img src="~/MyResume-1.0.0/assets/img/myfoto2.png" alt="">
+
+    <div class="container" data-aos="zoom-out">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <h2>Mehmet Can Kibar</h2>
+                <p>Çalışma alanlarım <span class="typed" data-typed-items="@ViewBag.v1">Software Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+                <div class="social-links">
+                    @foreach(var item in Model){
+                        <a href="@item.Url"><i class="@item.Icon"></i></a>
+                    }
+                    
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

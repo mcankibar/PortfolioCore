@@ -1,0 +1,33 @@
+﻿@model List<Education>
+
+@{
+    ViewData["Title"] = "SkillList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Eğitim Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Eğitim Başlığı</th>
+        <th>Eğitim Aralığı</th>
+        <th>Eğitim AltBaşlığı</th>
+        <th>Eğitim Detay</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EducationId  </td>
+            <td>@item.Title </td>
+            <td>@item.DateInfo </td>
+            <td>@item.SubTitle </td>
+            <td>@item.Description </td>
+            
+
+        </tr>
+    }
+</table>
+
+

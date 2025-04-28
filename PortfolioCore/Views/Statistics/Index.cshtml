@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1 class="text-center mb-5">@ViewBag.v0</h1>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body">
+                Toplam Yetenek Sayısı: <strong>@ViewBag.v1</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-info shadow">
+            <div class="card-body">
+                Toplam Yetenek Puanı: <strong>@ViewBag.v2</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body">
+                Değeri 70'den Büyük Yetenek Sayısı: <strong>@ViewBag.v3</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-info shadow">
+            <div class="card-body">
+                Yeteneklerin Ortalama Değeri: <strong>@ViewBag.v4</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body">
+                Deneyim Sayısı: <strong>@ViewBag.v5</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-info shadow">
+            <div class="card-body">
+                Başlığı Developer Olan Deneyim Sayısı: <strong>@ViewBag.v6</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body">
+                Toplam Kategori Sayısı: <strong>@ViewBag.v7</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-info shadow">
+            <div class="card-body">
+                Toplam Hizmet Sayısı: <strong>@ViewBag.v8</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body">
+                Toplam Proje Sayısı: <strong>@ViewBag.v9</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-info shadow">
+            <div class="card-body">
+                Toplam Referans Sayısı: <strong>@ViewBag.v10</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card:hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+    }
+</style>
